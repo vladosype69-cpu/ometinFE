@@ -16,7 +16,7 @@ export default function Home() {
   const socketRef = useRef<WebSocket | null>(null);
 
   // ZMEN na svoj Render backend
-  const BACKEND_WS_URL = "wss://YOUR-BACKEND.onrender.com/ws";
+  const BACKEND_WS_URL = "wss://ometinbe.onrender.com/ws";
 
   const addMessage = (text: string, type: ChatMessage["type"] = "system") => {
     setMessages((prev) => [...prev, { text, type }]);
