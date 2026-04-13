@@ -2,14 +2,440 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background: #020617;
-  color: #ffffff;
+  background: #1d1d1f;
+  color: #f5f5f5;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button, input {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.pageShell {
+  min-height: 100vh;
+  background: #202022;
+  padding: 28px;
+}
+
+.appFrame {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 56px);
+  border: 1px solid #4d0505;
+  background: #c8c8c8;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.sidebarPanel {
+  background: #cfcfcf;
+  border-right: 1px solid #a7a7a7;
+}
+
+.sidebarTopBar {
+  height: 74px;
+  background: #570400;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.avatarBubble,
+.circleIcon,
+.circleAction {
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.smallAvatar {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffd6dc, #8c0d4b);
+  color: white;
+  font-weight: 700;
+}
+
+.circleIcon,
+.circleAction {
+  width: 40px;
+  height: 40px;
+  background: #f3f3f3;
+  color: #111;
+  border: none;
+}
+
+.sidebarHeaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 14px 18px 8px;
+  color: #f3f3f3;
+  background: linear-gradient(#d0d0d0, #cfcfcf);
+  color: #fefefe;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sidebarGridWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 6px 18px 24px;
+}
+
+.sidebarGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebarProfileCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ececec;
+  overflow: hidden;
+}
+
+.mainStage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.navTabs {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #570400;
+}
+
+.tab {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.activeTab {
+  background: #ffffff;
+  color: #570400;
+}
+
+.videoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 0 0 6px;
+  background: #570400;
+}
+
+.videoPanel {
+  background: #3e3f43;
+  position: relative;
+  min-height: 480px;
+}
+
+.panelMediaWrap {
+  position: relative;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.coverImg {
+  object-fit: cover;
+}
+
+.dimBehind {
+  filter: brightness(0.48);
+}
+
+.videoEl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.videoLabel,
+.topOverlayText {
+  position: absolute;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.videoLabel {
+  bottom: 16px;
+}
+
+.leftLabel {
+  left: 16px;
+}
+
+.rightLabel {
+  right: 16px;
+}
+
+.topOverlayText {
+  top: 16px;
+  left: 16px;
+}
+
+.actionStrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  background: #570400;
+}
+
+.primaryAction,
+.bigAction,
+.sendBtn {
+  border: none;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.primaryAction {
+  padding: 18px 22px;
+  font-size: 22px;
+}
+
+.bigAction {
+  padding: 22px 28px;
+  min-width: 240px;
+  font-size: 30px;
+}
+
+.likeBtn {
+  background: #04557e;
+}
+
+.skipBtn {
+  background: #b45b00;
+}
+
+.chatBoxShell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #ececec;
+  border-top: 4px solid #570400;
+}
+
+.toolbarRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #d8d8d8;
+  background: #f6f6f6;
+}
+
+.statusBadge {
+  margin-left: auto;
+  background: #a3a3a3;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.statusBadge.active {
+  background: #0f865f;
+}
+
+.chatLog {
+  flex: 1;
+  min-height: 220px;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f3f3f3;
+}
+
+.chatBubble {
+  max-width: 70%;
+  padding: 12px 14px;
+  border-radius: 16px;
+}
+
+.chatBubble.me {
+  align-self: flex-end;
+  background: #04557e;
+}
+
+.chatBubble.partner {
+  align-self: flex-start;
+  background: #b45b00;
+}
+
+.chatBubble.system {
+  align-self: center;
+  background: #d0d0d0;
+  color: #222;
+}
+
+.chatInputRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #d5d5d5;
+  background: #ededed;
+}
+
+.chatInput {
+  border: 1px solid #cacaca;
+  background: white;
+  padding: 14px;
+}
+
+.sendBtn {
+  background: #570400;
+  padding: 0 18px;
+}
+
+.swipeStage {
+  padding-bottom: 28px;
+}
+
+.swipeBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex: 1;
+  background: linear-gradient(180deg, #4b0404 0%, #2c2c2e 100%);
+  padding: 32px;
+}
+
+.swipeStack {
+  position: relative;
+  width: min(100%, 520px);
+  height: 680px;
+}
+
+.swipeCard {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+}
+
+.backCard {
+  transform: scale(0.95) translateY(18px);
+  filter: brightness(0.72);
+}
+
+.frontCard {
+  z-index: 2;
+}
+
+.swipeOverlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 26px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.82) 100%);
+}
+
+.swipeOverlay h2 {
+  margin: 0 0 8px;
+  font-size: 34px;
+}
+
+.swipeOverlay p {
+  margin: 0;
+  color: #e6e6e6;
+}
+
+.swipeBio {
+  margin-top: 14px !important;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tag {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.swipeActions {
+  display: flex;
+  gap: 18px;
+}
+
+.swipeFeedback,
+.emptyDeck {
+  color: #f2f2f2;
+  font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .appFrame {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarPanel {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .videoColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .videoPanel,
+  .panelMediaWrap {
+    min-height: 320px;
+  }
+
+  .swipeStack {
+    height: 540px;
+  }
+
+  .bigAction {
+    min-width: 170px;
+    font-size: 24px;
+  }
 }
