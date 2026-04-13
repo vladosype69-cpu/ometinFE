@@ -1,21 +1,26 @@
-type SidebarUser = {
+type Profile = {
   id: number;
   name: string;
   image: string;
 };
 
 type SidebarProps = {
-  activeTab: "top" | "matches";
-  onTabChange: (tab: "top" | "matches") => void;
+  activeTab?: "top" | "matches";
+  onTabChange?: (tab: "top" | "matches") => void;
   onToggleMode?: () => void;
   inSwipeMode?: boolean;
   cameraEnabled?: boolean;
   micEnabled?: boolean;
   onToggleCamera?: () => void;
   onToggleMic?: () => void;
+
+  titleLeft?: string;
+  titleRight?: string;
+  leftProfiles?: Profile[];
+  rightProfiles?: Profile[];
 };
 
-const TOP_USERS: SidebarUser[] = [
+const DEFAULT_TOP_USERS: Profile[] = [
   { id: 1, name: "Alex", image: "https://picsum.photos/seed/top1/120/120" },
   { id: 2, name: "Nina", image: "https://picsum.photos/seed/top2/120/120" },
   { id: 3, name: "Leo", image: "https://picsum.photos/seed/top3/120/120" },
@@ -24,7 +29,7 @@ const TOP_USERS: SidebarUser[] = [
   { id: 6, name: "Emma", image: "https://picsum.photos/seed/top6/120/120" },
 ];
 
-const MY_MATCHES: SidebarUser[] = [
+const DEFAULT_MATCHES: Profile[] = [
   { id: 7, name: "Sofia", image: "https://picsum.photos/seed/match1/120/120" },
   { id: 8, name: "Liam", image: "https://picsum.photos/seed/match2/120/120" },
   { id: 9, name: "Olivia", image: "https://picsum.photos/seed/match3/120/120" },
@@ -34,7 +39,7 @@ const MY_MATCHES: SidebarUser[] = [
 ];
 
 export default function Sidebar({
-  activeTab,
+  activeTab = "top",
   onTabChange,
   onToggleMode,
   inSwipeMode = false,
@@ -42,8 +47,12 @@ export default function Sidebar({
   micEnabled = true,
   onToggleCamera,
   onToggleMic,
+  titleLeft = "Top užívatelia",
+  titleRight = "Moje zhody",
+  leftProfiles = DEFAULT_TOP_USERS,
+  rightProfiles = DEFAULT_MATCHES,
 }: SidebarProps) {
-  const users = activeTab === "top" ? TOP_USERS : MY_MATCHES;
+  const users = activeTab === "top" ? leftProfiles : rightProfiles;
 
   return (
     <aside className="flex w-[280px] flex-col bg-[#d7d7d7] text-black">
@@ -89,22 +98,22 @@ export default function Sidebar({
 
       <div className="grid grid-cols-2 bg-[#cfcfcf] text-center text-xs font-bold uppercase">
         <button
-          onClick={() => onTabChange("top")}
+          onClick={() => onTabChange?.("top")}
           className={`px-3 py-3 ${
             activeTab === "top" ? "bg-[#bfbfbf] text-white" : "text-[#666]"
           }`}
           type="button"
         >
-          Top užívatelia
+          {titleLeft}
         </button>
         <button
-          onClick={() => onTabChange("matches")}
+          onClick={() => onTabChange?.("matches")}
           className={`px-3 py-3 ${
             activeTab === "matches" ? "bg-[#bfbfbf] text-white" : "text-[#666]"
           }`}
           type="button"
         >
-          Moje zhody
+          {titleRight}
         </button>
       </div>
 
