@@ -1,8 +1,4 @@
-type Profile = {
-  id: number;
-  name: string;
-  image: string;
-};
+import { Profile } from './types';
 
 type SidebarProps = {
   activeTab?: "top" | "matches";
@@ -19,6 +15,8 @@ type SidebarProps = {
   leftProfiles?: Profile[];
   rightProfiles?: Profile[];
 };
+
+// ... zvyšok súboru ostáva rovnaký
 
 const DEFAULT_TOP_USERS: Profile[] = [
   { id: 1, name: "Alex", image: "https://picsum.photos/seed/top1/120/120" },
