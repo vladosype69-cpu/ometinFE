@@ -1,9 +1,5 @@
-export type Profile = {
-  id: string;
+export interface Profile {
+  id: number;
   name: string;
-  age: number;
-  city: string;
-  bio: string;
   image: string;
-  tags: string[];
-};
+}
