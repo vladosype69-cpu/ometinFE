@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import Sidebar from '@/components/Sidebar';
-import NavTabs from '@/components/NavTabs';
-import { Profile } from '@/components/types';
+import Sidebar from "../../components/Sidebar";
+import NavTabs from "../../components/NavTabs";
+import { Profile } from '../../components/types';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://YOUR-BACKEND.onrender.com';
 
